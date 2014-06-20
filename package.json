@@ -1,0 +1,30 @@
+{
+  "name": "everything",
+  "version": "0.0.0",
+  "description": "npm install everything",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gdi2290/node-everything.git"
+  },
+   "author": [
+    {
+      "name": "Patrick Stapleton",
+      "email": "github@gdi2290.com",
+      "url": "www.gdi2290.com"
+    }
+  ],
+  "keywords": [
+    "everything",
+    "allthethings",
+    "everymodule"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gdi2290/node-everything/issues"
+  },
+  "homepage": "https://github.com/gdi2290/node-everything"
+}
