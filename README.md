@@ -1,7 +1,7 @@
 node-everything
 ===============
 
-npm install everything
+`npm install everything`
 
 
 
