@@ -1,20 +1,18 @@
 const names = require('all-the-package-names');
 const fs = require('fs');
 const path = require('path');
-const fancyPackage = process.env.FANCY_PACKAGE || false;
 
 const { getFirstChar, getPkgJsonData, stringify } = require('./utils');
 
-const scopes = [
-	...'abcdefghijklmnopqrstuvwxyz'.split(''),
-	...'1234567890'.split(''),
-];
+const PRETTY_PRINT_PACKAGE_JSON =
+	['yes', '1', 'y'].includes(process.env.PRETTY_PRINT_PACKAGE_JSON) || false;
+const SCOPES = [...'abcdefghijklmnopqrstuvwxyz', ...'1234567890'];
 
 const packages = {};
 
 for (const name of names) {
 	const firstChar = getFirstChar(name);
-	const scope = scopes.includes(firstChar) ? firstChar : 'other';
+	const scope = SCOPES.includes(firstChar) ? firstChar : 'other';
 
 	if (!(scope in packages)) {
 		packages[scope] = [];
@@ -40,7 +38,7 @@ for (const [scope, dependencies] of Object.entries(packages)) {
 				return acc;
 			}, {}),
 		},
-		fancyPackage,
+		PRETTY_PRINT_PACKAGE_JSON,
 	);
 
 	fs.writeFileSync(path.join(dir, 'package.json'), pkgJson);
@@ -61,7 +59,7 @@ const pkgJson = stringify(
 			return acc;
 		}, {}),
 	},
-	fancyPackage,
+	PRETTY_PRINT_PACKAGE_JSON,
 );
 fs.writeFileSync(path.join(dir, 'package.json'), pkgJson);
 fs.writeFileSync(
