@@ -31,6 +31,7 @@ for (const [scope, dependencies] of Object.entries(packages)) {
 	const pkgJson = stringify(
 		{
 			name: packageName,
+			version: '0.1.0',
 			...getPkgJsonData(packageName, scope),
 			dependencies: dependencies.reduce((acc, curr) => {
 				acc[curr] = '*';
@@ -53,6 +54,7 @@ fs.mkdirSync(everythingPackageDir, { recursive: true });
 const everythingPkgJson = stringify(
 	{
 		name: `everything`,
+		version: require('../package.json').version,
 		...getPkgJsonData(),
 		dependencies: Object.keys(packages).reduce((acc, curr) => {
 			acc[`@everything-registry/${curr}`] = require('../package.json').version;

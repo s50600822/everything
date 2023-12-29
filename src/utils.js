@@ -12,7 +12,6 @@ function getFirstChar(name) {
 
 function getPkgJsonData(packageName, scope) {
 	return {
-		version: require('../package.json').version,
 		description: `npm install ${packageName}`,
 		main: 'index.js',
 		contributors: [
