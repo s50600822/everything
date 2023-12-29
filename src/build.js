@@ -1,7 +1,7 @@
 const names = require('all-the-package-names');
 const fs = require('fs');
 const path = require('path');
-const fancyPackage = false;
+const fancyPackage = process.env.FANCY_PACKAGE || false;
 
 const { getFirstChar, getPkgJsonData, stringify } = require('./utils');
 
