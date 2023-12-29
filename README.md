@@ -5,6 +5,9 @@
 npm install everything
 ```
 
+<img width="345" alt="Screenshot 2023-12-29 at 11 39 35 AM" src="https://github.com/everything-registry/everything/assets/1016365/f4612273-b2a2-444c-9d59-14268a4e6e51">
+
+
 
 
 ## Please don't actually install this 
