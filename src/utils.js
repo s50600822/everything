@@ -6,14 +6,8 @@ function getFirstChar(name) {
 		: initialChar;
 }
 
-function createPackageJSON({ scope, dependencies }) {
-	const deps = {};
-	for (const dependency of dependencies) {
-		deps[dependency] = "*";
-	}
-
-	return JSON.stringify({
-		name: `@everything-registry/${scope}`,
+function getPkgJsonData() {
+	return {
 		version: require("../package.json").version,
 		description: "npm install everything",
 		main: "index.js",
@@ -21,8 +15,7 @@ function createPackageJSON({ scope, dependencies }) {
 		keywords: ["everything", "allthethings", "everymodule"],
 		license: "MIT",
 		homepage: "https://github.com/everything-registry/everything",
-		dependencies: deps,
-	});
+    }
 }
 
-module.exports = { getFirstChar, createPackage: createPackageJSON };
+module.exports = { getFirstChar, getPkgJsonData };
