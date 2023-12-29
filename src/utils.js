@@ -18,6 +18,7 @@ function getPkgJsonData(packageName, scope) {
 			'PatrickJS <github@patrickjs.com>',
 			'uncenter <hi@uncenter.dev>',
 		],
+		scripts: {},
 		keywords: [
 			scope ? `everything-${scope}` : null,
 			'everything',
