@@ -1,13 +1,16 @@
 {
-	"version": "2.0.0",
-	"scripts": {
-		"build": "node ./src/build.js",
-		"format": "prettier --write ."
-	},
-	"dependencies": {
-		"all-the-package-names": "^2.0.1230"
-	},
-	"devDependencies": {
-		"prettier": "^3.1.1"
-	}
+  "versions": {
+    "main": "2.0.0",
+    "scoped": "0.1.0"
+  },
+  "scripts": {
+    "build": "node ./src/build.js",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "all-the-package-names": "^2.0.1230"
+  },
+  "devDependencies": {
+    "prettier": "^3.1.1"
+  }
 }

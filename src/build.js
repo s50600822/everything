@@ -55,7 +55,7 @@ for (const [scope, dependencies] of Object.entries(packages)) {
   const pkgJson = stringify(
     {
       name: packageName,
-      version: require('../package.json').version,
+      version: require('../package.json').versions.scoped,
       ...getPkgJsonData(packageName, scope),
       repository: {
         type: 'git',
@@ -84,7 +84,7 @@ const packageName = `everything`;
 const everythingPkgJson = stringify(
   {
     name: packageName,
-    version: require('../package.json').version,
+    version: require('../package.json').versions.main,
     ...getPkgJsonData(packageName),
     repository: {
       type: 'git',
