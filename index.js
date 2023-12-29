@@ -1,3 +1,5 @@
+// PRs welcomed!
+// gotta write them .cjs files
 let packages = require("./2023-packages-today.json");
 
 let dependencies = {};
@@ -18,11 +20,7 @@ let packageJson = {
     type: "git",
     url: "https://github.com/patrickjs/node-everything.git",
   },
-  author: {
-    name: "Patrick Stapleton",
-    email: "github@patrickjs.com",
-    url: "https://patrickjs.com",
-  },
+  author: "PatrickJS <github@patrickjs.com>",
   keywords: ["everything", "allthethings", "everymodule"],
   license: "MIT",
   bugs: {
