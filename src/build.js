@@ -66,5 +66,5 @@ const pkgJson = stringify(
 fs.writeFileSync(path.join(dir, 'package.json'), pkgJson);
 fs.writeFileSync(
 	path.join(dir, 'index.js'),
-	"console.log('You have installed everything but at what cost...');",
+	"console.log('You have installed everything... but at what cost?');",
 );
