@@ -18,7 +18,7 @@ let packageJson = {
   },
   repository: {
     type: "git",
-    url: "https://github.com/patrickjs/node-everything.git",
+    url: "git+https://github.com/patrickjs/node-everything.git",
   },
   author: "PatrickJS <github@patrickjs.com>",
   keywords: ["everything", "allthethings", "everymodule"],
