@@ -11,13 +11,11 @@ const SCOPES = [...'abcdefghijklmnopqrstuvwxyz', ...'1234567890'];
 const packages = {};
 
 for (const name of names) {
-	const firstChar = getFirstChar(name);
-	const scope = SCOPES.includes(firstChar) ? firstChar : 'other';
+	const scope = SCOPES.includes(getFirstChar(name))
+		? getFirstChar(name)
+		: 'other';
 
-	if (!(scope in packages)) {
-		packages[scope] = [];
-	}
-
+	if (!(scope in packages)) packages[scope] = [];
 	packages[scope].push(name);
 }
 
@@ -26,8 +24,9 @@ if (fs.existsSync(LIB)) fs.rmSync(LIB, { recursive: true });
 
 for (const [scope, dependencies] of Object.entries(packages)) {
 	const packageName = `@everything-registry/${scope}`;
-	const dir = path.join(LIB, scope);
-	fs.mkdirSync(dir, { recursive: true });
+	const packageDir = path.join(LIB, scope);
+
+	fs.mkdirSync(packageDir, { recursive: true });
 
 	const pkgJson = stringify(
 		{
@@ -41,16 +40,17 @@ for (const [scope, dependencies] of Object.entries(packages)) {
 		PRETTY_PRINT_PACKAGE_JSON,
 	);
 
-	fs.writeFileSync(path.join(dir, 'package.json'), pkgJson);
+	fs.writeFileSync(path.join(packageDir, 'package.json'), pkgJson);
 	fs.writeFileSync(
-		path.join(dir, 'index.js'),
-		`console.log('Beep boop!', '${packageName}');`,
+		path.join(packageDir, 'index.js'),
+		`console.log('Beep boop!');`,
 	);
 }
 
-const dir = path.join(LIB, 'everything');
-fs.mkdirSync(dir, { recursive: true });
-const pkgJson = stringify(
+const everythingPackageDir = path.join(LIB, 'everything');
+fs.mkdirSync(everythingPackageDir, { recursive: true });
+
+const everythingPkgJson = stringify(
 	{
 		name: `everything`,
 		...getPkgJsonData(),
@@ -61,8 +61,11 @@ const pkgJson = stringify(
 	},
 	PRETTY_PRINT_PACKAGE_JSON,
 );
-fs.writeFileSync(path.join(dir, 'package.json'), pkgJson);
 fs.writeFileSync(
-	path.join(dir, 'index.js'),
+	path.join(everythingPackageDir, 'package.json'),
+	everythingPkgJson,
+);
+fs.writeFileSync(
+	path.join(everythingPackageDir, 'index.js'),
 	"console.log('You have installed everything... but at what cost?');",
 );
