@@ -3,6 +3,9 @@
     "version": "2.0.0",
     "description": "npm install everything",
     "main": "index.js",
+    "scripts": {
+        "build": "node ./src/build.js"
+      },
     "repository": {
       "type": "git",
       "url": "git+https://github.com/everything-registry/everything.git"
