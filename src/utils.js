@@ -1,3 +1,7 @@
+function stringify(str, fancy) {
+	return JSON.stringify(str, null, fancy ? 2 : 0);
+}
+
 function getFirstChar(name) {
 	const initialChar = name.charAt(0).toLowerCase();
 
@@ -6,19 +10,24 @@ function getFirstChar(name) {
 		: initialChar;
 }
 
-function getPkgJsonData() {
+function getPkgJsonData(packageName, scope) {
 	return {
 		version: require('../package.json').version,
-		description: 'npm install everything',
+		description: `npm install ${packageName}`,
 		main: 'index.js',
 		contributors: [
 			'PatrickJS <github@patrickjs.com>',
 			'uncenter <hi@uncenter.dev>',
 		],
-		keywords: ['everything', 'allthethings', 'everymodule'],
+		keywords: [
+			scope ? `everything-${scope}` : null,
+			'everything',
+			'allthethings',
+			'everymodule',
+		].filter(Boolean),
 		license: 'MIT',
 		homepage: 'https://github.com/everything-registry/everything',
 	};
 }
 
-module.exports = { getFirstChar, getPkgJsonData };
+module.exports = { stringify, getFirstChar, getPkgJsonData };
