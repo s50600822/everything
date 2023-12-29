@@ -5,16 +5,7 @@ cd ./lib/
 for dir in */; do
     cd "$dir"
 
-    os=$(uname -s)
-
-    if [ "$os" == "Linux" ]; then
-        size=$(stat -c %s ./package.json)
-    elif [ "$os" == "Darwin" ]; then
-        size=$(stat -f%z ./package.json)
-    else
-        echo "ERROR: unsupported OS: $os"
-        exit 1
-    fi
+    size=$(stat -f%z ./package.json)
 
     echo "$dir: $size"
 
