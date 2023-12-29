@@ -4,7 +4,7 @@
     "scoped": "0.1.0"
   },
   "scripts": {
-    "build": "node ./src/build.js",
+    "build": "node --env-file=.env ./src/build.js",
     "format": "prettier --write ."
   },
   "dependencies": {

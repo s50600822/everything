@@ -89,10 +89,11 @@ const everythingPkgJson = stringify(
     repository: {
       type: 'git',
       url: 'https://github.com/everything-registry/everything.git',
-      directory: `lib/${packageName}}`,
+      directory: `lib/${packageName}`,
     },
     dependencies: Object.keys(packages).reduce((acc, curr) => {
-      acc[`@everything-registry/${curr}`] = require('../package.json').version;
+      acc[`@everything-registry/${curr}`] =
+        require('../package.json').versions.scoped;
       return acc;
     }, {}),
   },
