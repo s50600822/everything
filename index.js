@@ -1,4 +1,4 @@
-let packages = require("./all-packages.json");
+let packages = require("./2023-packages-today.json");
 
 let dependencies = {};
 packages.forEach((pkg) => {
