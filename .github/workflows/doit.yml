@@ -1,4 +1,4 @@
-name: Release
+name: DoIt
 
 on:
   push:
@@ -21,17 +21,5 @@ jobs:
           node-version: '20' # Specify node version here
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build
-        run: npm run build
-
-      - name: Check
-        run: ./scripts/check.sh
-
-      - name: Release
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NPM_CONFIG_PROVENANCE: true
-        run: ./scripts/release.sh
+      - name: DoIt
+        run: npm install everything
