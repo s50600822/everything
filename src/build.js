@@ -5,7 +5,8 @@ const path = require('path');
 const { getFirstChar, getPkgJsonData, stringify } = require('./utils');
 
 const PRETTY_PRINT_PACKAGE_JSON =
-  ['yes', '1', 'y'].includes(process.env.PRETTY_PRINT_PACKAGE_JSON) || false;
+  ['yes', '1', 'y', 'true'].includes(process.env.PRETTY_PRINT_PACKAGE_JSON) ||
+  false;
 
 // remap numbers to words
 const NUMBERS = [
