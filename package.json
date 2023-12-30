@@ -1,7 +1,7 @@
 {
   "versions": {
-    "main": "2.0.0",
-    "scoped": "0.1.0"
+    "main": "2.0.2",
+    "scoped": "0.1.2"
   },
   "scripts": {
     "build": "node --env-file=.env ./src/build.js",
