@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  release:
+  doit:
     runs-on: macos-latest
     permissions:
       id-token: write
