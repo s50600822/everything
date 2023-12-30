@@ -60,7 +60,7 @@ for (const [scope, dependencies] of Object.entries(packages)) {
       ...getPkgJsonData(packageName, scope),
       repository: {
         type: 'git',
-        url: 'https://github.com/everything-registry/everything.git',
+        url: 'git+https://github.com/everything-registry/everything.git',
         directory: `lib/${scope}`,
       },
       dependencies: dependencies.reduce((acc, curr) => {
@@ -114,7 +114,7 @@ const everythingPkgJson = stringify(
     ...getPkgJsonData(packageName),
     repository: {
       type: 'git',
-      url: 'https://github.com/everything-registry/everything.git',
+      url: 'git+https://github.com/everything-registry/everything.git',
     },
     dependencies: Object.keys(packages).reduce((acc, curr) => {
       acc[`@everything-registry/${curr}`] =
